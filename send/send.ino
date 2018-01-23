@@ -45,7 +45,7 @@ void loop() {
     }
 
   }
-  delay(1000);
+  delay(2000);
   
   if (sensors.available())
   {
@@ -57,7 +57,7 @@ void loop() {
     Serial.println(temp);
     Serial.println(F(" 'C"));
 
-  char tmp[8];
+    char tmp[8];
     for(int i = 0; i < 8; i++) 
       sprintf(tmp, "%02X", (unsigned char)address[i]);
     sensors.request(address);
@@ -72,7 +72,7 @@ void loop() {
    Serial.println(temp);
    radio.write(&temp,sizeof(temp));
     
-    delay(4000);
+    delay(2000);
   }
  
 }

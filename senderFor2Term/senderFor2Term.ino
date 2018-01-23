@@ -66,20 +66,19 @@ void loop() {
   if (sensors.available())
   {
     float temperature = sensors.readTemperature(address);
-    char temp[15] = {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
+    char temp[10] = {0,0,0,0,0,0,0,0,0,0};
     dtostrf(temperature, 4, 3, temp);   
-    
     
     sensors.request(address);
     //give sensor a unique name
-    char tmp[8];
-    for(int i = 0; i < 8; i++) 
+    char tmp[3];
+    for(int i = 0; i < 3; i++) 
       sprintf(tmp, "%02X", (unsigned char)address[i]);
     
     temp[5] = ' ';
    
     int i = 6;
-    for(int j = 0; j<8;j++){
+    for(int j = 0; j<3;j++){
       temp[i]= tmp[j];
       i++;
     }
@@ -95,20 +94,19 @@ void loop() {
   if (sensors2.available())
   {
     float temperature = sensors2.readTemperature(address2);
-    char temp[15] = {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
+    char temp[10] = {0,0,0,0,0,0,0,0,0,0};
     dtostrf(temperature, 4, 3, temp);   
 
-    
     sensors2.request(address2);
     //give sensor a unique name
-    char tmp[8];
-    for(int i = 0; i < 8; i++) 
+    char tmp[3];
+    for(int i = 0; i < 3; i++) 
       sprintf(tmp, "%02X", (unsigned char)address2[i]);
     
     temp[5] = ' ';
    
     int i = 6;
-    for(int j = 0; j<8;j++){
+    for(int j = 0; j<3;j++){
       temp[i]= tmp[j];
       i++;
     }
@@ -124,6 +122,3 @@ void loop() {
   }
  
 }
-
-
-
